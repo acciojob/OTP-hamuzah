@@ -1,18 +1,29 @@
-//your JS code here. If required.
-function focusNext(currentInput) {
-    if (currentInput.value.length === 1) {
-        const nextInput = currentInput.nextElementSibling;
-        if (nextInput) {
-            nextInput.focus();
-        }
-    }
-}
-
-function handleBackspace(currentInput, event) {
-    if (currentInput.value === '' && event.key === 'Backspace') {
-        const previousInput = currentInput.previousElementSibling;
-        if (previousInput) {
-            previousInput.focus();
-        }
-    }
+ let inputElements = document.getElementsByClassName("code");
+console.log(inputElements.length)
+for(let i=0; i< inputElements.length; i++){
+	inputElements[i].addEventListener("keyup", (event)=>{
+		let currentElement = event.target ;
+		let code = event.key.charCodeAt(0);
+		console.log(event.key)
+		if(event.key === "Backspace"){
+			let prevElement = currentElement.previousElementSibling ;
+			if(prevElement){
+				prevElement.focus();
+			}
+			return ;
+		}
+		
+		
+		
+		if(code>=48 && code<=57){
+			let nextElement = currentElement.nextElementSibling ;
+			if(nextElement){
+				nextElement.focus() ;
+			}
+			
+		}else{
+			event.target.value="" ;
+		}
+	})
+	
 }
