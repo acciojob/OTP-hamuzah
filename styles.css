@@ -1,32 +1,18 @@
 /*  your css code here. If applicable */
-.code{
-	width:20px;
-	height:20px;
-	margin: 10px ;
-	
-}
 
-h1 {
-    font-size: 24px;
-    margin-top: 20px;
-}
 
-#verification_subtext {
-    font-size: 16px;
-    color: #888;
-    margin-bottom: 20px;
+#p{
+	 background-color: lightgrey;
+	 text-align: center,
 }
-
-.code-container {
-    display: flex;
-    justify-content: center;
-}
-
-.code {
-    width: 40px;
-    height: 40px;
-    font-size: 24px;
-    text-align: center;
-    margin: 5px;
-    border: 1px solid #ccc;
-}
+ .code-container {
+            display: flex;
+	        align-content: center
+        }
+  .code {
+            width: 2em;
+            height: 2em;
+            font-size: 1.5em;
+            text-align: center;
+            margin: 0 0.2em;
+        }

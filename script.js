@@ -1,29 +1,19 @@
- let inputElements = document.getElementsByClassName("code");
-console.log(inputElements.length)
-for(let i=0; i< inputElements.length; i++){
-	inputElements[i].addEventListener("keyup", (event)=>{
-		let currentElement = event.target ;
-		let code = event.key.charCodeAt(0);
-		console.log(event.key)
-		if(event.key === "Backspace"){
-			let prevElement = currentElement.previousElementSibling ;
-			if(prevElement){
-				prevElement.focus();
-			}
-			return ;
-		}
-		
-		
-		
-		if(code>=48 && code<=57){
-			let nextElement = currentElement.nextElementSibling ;
-			if(nextElement){
-				nextElement.focus() ;
-			}
-			
-		}else{
-			event.target.value="" ;
-		}
-	})
-	
-}
+ const codeInputs = document.querySelectorAll(".code");
+
+        codeInputs.forEach((input, index) => {
+            input.addEventListener("input", (event) => {
+                const inputValue = event.target.value;
+
+                if (inputValue.length === 1) {
+                    if (index < codeInputs.length - 1) {
+                        codeInputs[index + 1].focus();
+                    }
+                }
+            });
+
+            input.addEventListener("keydown", (event) => {
+                if (event.key === "Backspace" && index > 0) {
+                    codeInputs[index - 1].focus();
+                }
+            });
+        });
